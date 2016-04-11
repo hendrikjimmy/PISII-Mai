@@ -21,8 +21,16 @@ public class Rental {
 		return _movie.getCharge(_daysRented);
 	}
 
-	int getFrequentRenterPoints() {
-		return _movie.getFrequentRenterPoints(_daysRented);
+	int getFrequentRenterPoints(int daysRented) {
+		if ((getPriceCode() == Movie.NEW_RELEASE) && daysRented > 1)
+			return 2;
+		else
+			return 1;
+	}
+
+	private int getPriceCode() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
