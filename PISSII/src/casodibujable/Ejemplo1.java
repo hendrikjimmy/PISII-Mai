@@ -1,21 +1,24 @@
 package casodibujable;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.awt.*;
 
 class Ejemplo1 {
+	private static final Logger log= Logger.getLogger(Ejemplo1.class.getName());
+	
 	public static void main(String arg[]) throws InterruptedException {
-		System.out.println("Comienza main()...");
+		log.log(Level.SEVERE, "Init","Comienza main()...");
 		Circulo c = new Circulo(2.0, 2.0, 4.0);
-		System.out.println("Radio = " + c.r + " unidades.");
-		System.out.println("Centro = (" + c.x + "," + c.y + ") unidades.");
+		log.log(Level.SEVERE, "Radio","Radio = " + c.getR() + " unidades.");
+		log.log(Level.SEVERE, "Centro","Centro = (" + c.getX() + "," + c.getY() + ") unidades.");
 		Circulo c1 = new Circulo(1.0, 1.0, 2.0);
 		Circulo c2 = new Circulo(0.0, 0.0, 3.0);
 		c = c1.elMayor(c2);
-		System.out.println("El mayor radio es " + c.r + ".");
-		c = new Circulo(); // c.r = 0.0;
+		log.log(Level.SEVERE, "Mayor","El mayor radio es " + c.getR() + ".");
 		c = Circulo.elMayor(c1, c2);
-		System.out.println("El mayor radio es " + c.r + ".");
+		log.log(Level.SEVERE, "Mayor","El mayor radio es " + c.getR() + ".");
 		VentanaCerrable ventana = new VentanaCerrable("Ventana abierta al mundo...");
 		ArrayList v = new ArrayList();
 		CirculoGrafico cg1 = new CirculoGrafico(200, 200, 100, Color.red);
@@ -28,6 +31,6 @@ class Ejemplo1 {
 		ventana.add(mipanel);
 		ventana.setSize(500, 400);
 		ventana.setVisible(true);
-		System.out.println("Termina main()...");
+		log.log(Level.SEVERE, "Finish","Termina main()...");
 	} // fin de main()
 }

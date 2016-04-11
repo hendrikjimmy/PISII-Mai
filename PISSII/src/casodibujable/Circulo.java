@@ -8,9 +8,9 @@ public class Circulo extends Geometria {
 	private double r;
 
 	public Circulo(double x, double y, double r) {
-		this.x = x;
-		this.y = y;
-		this.r = r;
+		this.setX(x);
+		this.setY(y);
+		this.setR(r);
 		numCirculos++;
 	}
 
@@ -19,7 +19,7 @@ public class Circulo extends Geometria {
 	}
 
 	public Circulo(Circulo c) {
-		this(c.x, c.y, c.r);
+		this(c.getX(), c.getY(), c.getR());
 	}
 
 	public Circulo() {
@@ -27,16 +27,16 @@ public class Circulo extends Geometria {
 	}
 
 	public double perimetro() {
-		return 2.0 * PI * r;
+		return 2.0 * PI * getR();
 	}
 
 	public double area() {
-		return PI * r * r;
+		return PI * getR() * getR();
 	}
 
 	// método de objeto para comparar círculos
 	public Circulo elMayor(Circulo c) {
-		if (this.r >= c.r)
+		if (this.getR() >= c.getR())
 			return this;
 		else
 			return c;
@@ -44,9 +44,33 @@ public class Circulo extends Geometria {
 
 	// método de clase para comparar círculos
 	public static Circulo elMayor(Circulo c, Circulo d) {
-		if (c.r >= d.r)
+		if (c.getR() >= d.getR())
 			return c;
 		else
 			return d;
+	}
+
+	public double getX() {
+		return x;
+	}
+
+	public void setX(double x) {
+		this.x = x;
+	}
+
+	public double getR() {
+		return r;
+	}
+
+	public void setR(double r) {
+		this.r = r;
+	}
+
+	public double getY() {
+		return y;
+	}
+
+	public void setY(double y) {
+		this.y = y;
 	}
 }
